@@ -1,0 +1,11 @@
+<mat-form-field appearance="fill">
+  <mat-label>Telefono nr.</mat-label>
+  <mat-icon matSuffix>phone</mat-icon>
+  <mat-hint>be šalies kodo (370)</mat-hint>
+  <input matInput [(ngModel)]="telephone">
+</mat-form-field>
+<div>
+  <button mat-button (click)="findClient()">
+    <mat-icon>how_to_reg</mat-icon>  rasti klientą
+  </button>
+</div>

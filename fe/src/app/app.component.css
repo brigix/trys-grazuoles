@@ -1,0 +1,35 @@
+img {
+  width: 100%;
+  object-fit: cover;
+  padding: 0px;
+}
+
+.container {
+  position: relative;
+  text-align: left;
+  color: deeppink;
+  padding: 0px;
+}
+
+.top-center {
+  position: relative;
+  bottom: 80px;
+  left: 25px;
+  font-size: large;
+  padding: 0px;
+}
+
+body{
+  background-color: white;
+  color: black;
+}
+p{
+  color: white;
+}
+h3{
+  color: #E91E63;
+}
+.left {
+  alignment: left;
+  position: absolute;
+}

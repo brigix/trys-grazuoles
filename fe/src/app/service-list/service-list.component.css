@@ -1,0 +1,16 @@
+.list-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.list-radio-button {
+  margin: 5px;
+  color: white;
+}
+mat-radio-button {
+  color: #E91E63;
+}
+div{
+  color: white;
+}

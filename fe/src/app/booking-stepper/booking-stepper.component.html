@@ -1,0 +1,42 @@
+<mat-horizontal-stepper #stepper [linear]="true">
+  <mat-step label="Paslaugos">
+    <app-service-list (selectedServiceEvent)="onSelectedServiceEvent($event)"
+                      [serviceList]="serviceList"></app-service-list>
+  </mat-step>
+  <mat-step label="Specialistai">
+    <app-employee [selectedService]="selectedService" [employees]="employeesListByService"
+                  (selectedEmployeeEvent)="onSelectedEmployeeEvent($event)"></app-employee>
+  </mat-step>
+  <mat-step label="Laiko pasirinkimas">
+    <app-calendar [selectedEmployee]="selectedEmployee" [timetable]="timetable" [selectedService]="selectedService" [freeHours]="freeHours"
+                  (selectedDateEvent)="onSelectedDateEvent($event)" (selectedHourEvent)="onSelectedTimeEvent($event)"></app-calendar>
+  </mat-step>
+
+  <mat-step label="Registracija">
+    <app-registration [selectedService]="selectedService" [selectedEmployee]="selectedEmployee"
+                      [selectedDate]="selectedDateStr" [selectedHour]="selectedHour"
+                      [client]="client"
+                      (telephoneEvent)="onFindClientEvent($event)"
+                      (saveBookingEvent)="onSaveBookingEvent($event)"></app-registration>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Patvirtinimas</ng-template>
+    <app-confirm [booking]="booking" [client]="client"
+                 (confirmEvent)="onConfirmBookingEvent($event)"></app-confirm>
+  </mat-step>
+</mat-horizontal-stepper>
+
+<!-- Toast start-->
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="savedToast" data-autohide="true"
+     hidden="true">
+  <div class="toast-header green-background">
+    <strong> {{ toastMessage }}</strong>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" (click)="closeToast()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="toast-body">
+  </div>
+</div>
+<!--toast end -->

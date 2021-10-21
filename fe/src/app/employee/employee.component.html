@@ -1,0 +1,13 @@
+<div>Pasirinkta paslauga: {{ selectedService }} </div>
+<mat-radio-group
+  class="list-radio-group"
+  [(ngModel)]="selectedEmployee">
+  <mat-radio-button class="list-radio-button" *ngFor="let employee of employees" [value]="employee">
+    {{ employee.name + " " + employee.surname }}
+  </mat-radio-button>
+</mat-radio-group>
+<div *ngIf="selectedEmployee.surname">Jūs pasirinkote: {{ selectedEmployee.name }} {{ selectedEmployee.surname }} </div>
+<div>
+  <button mat-button matStepperPrevious><mat-icon>arrow_back_ios</mat-icon></button>
+  <button mat-button matStepperNext (click)="selectEmployee()"><mat-icon>arrow_forward_ios</mat-icon></button>
+</div>

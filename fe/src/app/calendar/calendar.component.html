@@ -1,0 +1,46 @@
+<div>Pasirinkta paslauga: {{ selectedService }} </div>
+<div>Pasirinktas specialistas:  {{ selectedEmployee.name }} {{ selectedEmployee.surname }} </div>
+<!-- Single selection mode -->
+<div class="my_container">
+  <igx-calendar #calendar
+                [disabledDates]="disabledDates"
+                weekStart="1"
+                [locale]="locale"
+                [formatOptions]="formatOptions"
+                [formatViews]="formatViews"
+                class="calendar"
+                (onSelection)="selectDate()"
+                [(ngModel)]="selectedDate">
+    <!-- Modify the header to display the month (in titlecase), day and weekday -->
+    <ng-template igxCalendarHeader let-parts>
+      {{ parts.month.combined | titlecase }} {{ parts.day.combined }} {{ parts.weekday.combined }}
+    </ng-template>
+    <ng-template igxCalendarSubheader let-parts >
+      <span class="date__el" (click)="parts.monthView()">{{ parts.month.combined }}</span>
+      <span class="date__el" (click)="parts.yearView()">{{ parts.year.combined }}</span>
+    </ng-template>
+  </igx-calendar>
+  <div class="hours">
+    <div *ngIf="selectedDateStr">Pasirinkite valandą:</div>
+    <mat-radio-group
+      class="list-radio-group"
+      [(ngModel)]="selectedHour">
+      <mat-radio-button class="list-radio-button" *ngFor="let hour of freeHours" [value]="hour">
+        {{ hour }}
+      </mat-radio-button>
+    </mat-radio-group>
+    <div *ngIf="selectedHour">Jūs pasirinkote: {{ selectedHour }} </div>
+  </div>
+</div>
+<div>
+  <button mat-button matStepperPrevious>
+    <mat-icon>arrow_back_ios</mat-icon>
+  </button>
+  <button mat-button matStepperNext (click)="selectHour()">
+    <mat-icon>arrow_forward_ios</mat-icon>
+  </button>
+</div>
+
+
+
+

@@ -1,0 +1,53 @@
+<mat-card>
+  <span>Registracijos duomenys:</span>
+  <mat-grid-list cols="2" rowHeight="25:2">
+    <mat-grid-tile>
+      <span>Paslauga</span>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <span>{{ selectedService }}</span>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <span>Specialistas/ė</span>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <span><span>{{ selectedEmployee.name }} {{ selectedEmployee.surname }}</span></span>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <span>
+        Pasirinktas laikas:
+      </span>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <span>{{ selectedDate }} {{ selectedHour }}</span>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div>
+      <span><mat-form-field appearance="fill">
+        <mat-label>Telefono nr.</mat-label>
+        <mat-icon matSuffix>phone</mat-icon>
+        <mat-hint>be šalies kodo (370)</mat-hint>
+        <input matInput [(ngModel)]="telephone">
+      </mat-form-field></span>
+  </div>
+  <div>
+      <span><button mat-button (click)="findClient()">
+          <mat-icon>how_to_reg</mat-icon>
+          rasti klientą
+        </button></span>
+  </div>
+  <div>
+        <span *ngIf="client.surname">Rastas klientas: <br>
+          {{ client.surname }} {{ client.name }}, {{ client.telephone}}
+          <div *ngIf="client.surname == null" style="color: #E91E63">Tokio kliento nėra</div>
+      </span>
+  </div>
+</mat-card>
+<div>
+  <button mat-button matStepperPrevious>
+    <mat-icon>arrow_back_ios</mat-icon>
+  </button>
+  <button mat-button matStepperNext (click)="saveBooking()">
+    <mat-icon>arrow_forward_ios</mat-icon>
+  </button>
+</div>

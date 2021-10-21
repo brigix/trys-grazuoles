@@ -1,0 +1,16 @@
+<div>Registracijos patvirtinimas:</div>
+
+<div *ngIf="booking.bookedTime != null">
+  {{ booking.serviceTitle }} <br>
+  {{ booking.EmployeeNameSurname }} <br>
+  {{ booking.bookedTime }} <br>
+  {{ client.name }} {{ client.surname }}, {{ client.telephone }}
+</div>
+<div>
+  <button mat-button matStepperPrevious>
+    <mat-icon>arrow_back_ios</mat-icon>
+  </button>
+  <button mat-button (click)="confirm()">
+    <mat-icon>save</mat-icon>
+  </button>
+</div>

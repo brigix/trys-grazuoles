@@ -1,0 +1,11 @@
+<mat-radio-group
+  class="list-radio-group"
+  [(ngModel)]="selectedService" id="selectedService">
+  <mat-radio-button class="list-radio-button"  *ngFor="let service of serviceList" [value]="service.serviceTitle">
+    {{ service.serviceTitle + " nuo " + service.price + " EUR" }}
+  </mat-radio-button>
+</mat-radio-group>
+<div *ngIf="selectedService">Jūs pasirinkote: {{ selectedService }} </div>
+<div>
+  <button mat-button matStepperNext (click)="selectService()"><mat-icon>arrow_forward_ios</mat-icon></button>
+</div>

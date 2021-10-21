@@ -1,0 +1,43 @@
+body {
+  color: white;
+}
+.calendar {
+  width: 30%;
+  alignment: left;
+  flex: 0 0 30%;
+}
+div{
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+}
+.hours {
+  width: 30%;
+  alignment: right;
+  padding-left: 30px;
+}
+.my_container {
+  width: 100%;
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+  display: flex;
+  align-items: stretch;
+  align-content: space-between;
+}
+
+.list-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.list-radio-button {
+  margin: 5px;
+  color: white;
+}
+mat-radio-button {
+  color: #E91E63;
+}
+div{
+  color: white;
+}
